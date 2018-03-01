@@ -15,7 +15,9 @@ class Table extends Component  {
       imgStyle,
       imgContainer,
       titleStyle,
-      inputStyle
+      inputStyle,
+      formStyle,
+      
     } = styles;
 
     return (
@@ -24,23 +26,30 @@ class Table extends Component  {
             style={imgStyle}
             source={require('../resources/img/logo.png')}
           />
+      
           <Text style={titleStyle}>
             Table Number
           </Text>
-          <FormInput
-            keyboardType='numeric'
-            onChangeText={() => null}
-            inputStyle={inputStyle}
-            autoFocus
-          />
-          <Button
-            raised
-            icon={{ name: 'done' }}
-            title='Next'
-            backgroundColor="green"
-          />
-
-        </View>
+          <View style={formStyle}>
+            <View style={{ flex: 1 }}>
+                <FormInput
+                  keyboardType='numeric'
+                  onChangeText={() => null}
+                  inputStyle={inputStyle}
+                  autoFocus
+                />
+              </View>
+            <View style={{ flex: 1 }}>
+              <Button
+                raised
+                icon={{ name: 'done' }}
+                title='Next'
+                backgroundColor="green"
+              />
+            </View>
+          </View>
+      </View>
+        
     );
   }
 }
@@ -61,10 +70,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  
   inputStyle: {
     color: 'black',
     fontSize: 20,
-    textAlign: 'center'
+  },
+  formStyle: {
+    flex: 1, 
+    flexDirection: 'row'
   }
 
 });

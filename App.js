@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {  View, StyleSheet } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import Table from './components/Table';
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -11,7 +12,7 @@ export default class App extends Component {
   }
 
   render() {
-    
+
     const { 
       container
     } = styles;
@@ -30,6 +31,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 30
   }
+});
+
+
+export default StackNavigator({
+  Home: {
+    screen: App,
+  },
 });
