@@ -7,7 +7,10 @@ class Table extends Component  {
 
   constructor(props) {
     super(props);
-    this.state = { text: 'Useless Placeholder' };
+    // Initial State
+    this.state = { 
+      tableNumber: '' 
+    };
   }
 
   render() {
@@ -16,8 +19,7 @@ class Table extends Component  {
       imgContainer,
       titleStyle,
       inputStyle,
-      formStyle,
-      
+      formStyle
     } = styles;
 
     return (
@@ -30,15 +32,20 @@ class Table extends Component  {
           <Text style={titleStyle}>
             Table Number
           </Text>
+
           <View style={formStyle}>
+
             <View style={{ flex: 1 }}>
                 <FormInput
                   keyboardType='numeric'
-                  onChangeText={() => null}
+                  onChangeText={(tableNumber) => this.setState({ tableNumber })}
+                  value={this.state.tableNumber}
                   inputStyle={inputStyle}
+                  placeholder="3"
                   autoFocus
                 />
-              </View>
+            </View>
+
             <View style={{ flex: 1 }}>
               <Button
                 raised
@@ -47,7 +54,9 @@ class Table extends Component  {
                 backgroundColor="green"
               />
             </View>
+
           </View>
+
       </View>
         
     );
@@ -63,7 +72,7 @@ const styles = StyleSheet.create({
   imgStyle: {
     width: 200,
     height: 200,
-    marginBottom: 20,
+    marginBottom: 10,
     resizeMode: 'contain'
   },
   titleStyle: {

@@ -3,40 +3,22 @@ import {  View, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import Table from './components/Table';
+import HomeScreen from './components/Home';
 
-class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
+const RootStack = StackNavigator({
+    Home: {
+      screen: HomeScreen,
+    },
+    
+  },
+  {
+    initialRouteName: 'Home',
   }
+);
 
+export default class App extends Component {
   render() {
-
-    const { 
-      container
-    } = styles;
-
-    return (
-      <View style={container}>
-       <Table />
-      </View>
-    );
+    return <RootStack />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  }
-});
-
-
-export default StackNavigator({
-  Home: {
-    screen: App,
-  },
-});
