@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
+import React, { Component } from 'react';
+import {  View, StyleSheet } from 'react-native';
 
+import Table from './components/Table';
 
-export default class App extends React.Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
@@ -11,38 +11,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    
     const { 
-      container, 
-      imgStyle,
-      imgContainer,
-      titleStyle,
-      inputStyle
+      container
     } = styles;
 
     return (
       <View style={container}>
-        <View style={imgContainer}>
-          <Image
-            style={imgStyle}
-            source={require('./Resources/img/logo.png')}
-          />
-          <Text style={titleStyle}>
-            Table Number
-          </Text>
-          <FormInput 
-            keyboardType='numeric'
-            onChangeText={() => null} 
-            inputStyle={inputStyle}
-            autoFocus
-          />
-          <Button
-            raised
-            icon={{ name: 'done' }}
-            title='Next'
-            backgroundColor="green"
-          />
-
-        </View>
+       <Table />
       </View>
     );
   }
@@ -55,26 +31,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginTop: 30
-  },
-  imgContainer: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  imgStyle: { 
-    width: 200, 
-    height: 200, 
-    marginBottom: 20,
-    resizeMode: 'contain'
-  },
-  titleStyle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  inputStyle: {
-    color: 'black',
-    fontSize: 20,
-    textAlign: 'center'
   }
-  
 });
