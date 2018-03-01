@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { TextInput } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
 
 
 export default class App extends React.Component {
@@ -9,14 +9,14 @@ export default class App extends React.Component {
     super(props);
     this.state = { text: 'Useless Placeholder' };
   }
-  
+
   render() {
-    // destructure the styles, to make it readable
     const { 
       container, 
       imgStyle,
       imgContainer,
-      titleStyle
+      titleStyle,
+      inputStyle
     } = styles;
 
     return (
@@ -29,11 +29,19 @@ export default class App extends React.Component {
           <Text style={titleStyle}>
             Table Number
           </Text>
-          <TextInput
-            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            onChangeText={(text) => this.setState({ text })}
-            value={this.state.text}
+          <FormInput 
+            keyboardType='numeric'
+            onChangeText={() => null} 
+            inputStyle={inputStyle}
+            autoFocus
           />
+          <Button
+            raised
+            icon={{ name: 'done' }}
+            title='Next'
+            backgroundColor="green"
+          />
+
         </View>
       </View>
     );
@@ -46,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 60
+    marginTop: 30
   },
   imgContainer: {
     flex: 1,
@@ -62,6 +70,11 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  inputStyle: {
+    color: 'black',
+    fontSize: 20,
+    textAlign: 'center'
   }
   
 });
