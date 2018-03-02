@@ -87,7 +87,7 @@ class Table extends Component  {
                   name: 'qrcode-scan',
                   style: iconStyles
                  }}
-                backgroundColor="grey"
+                backgroundColor="#2D4B6D"
               
               />
             </View>
