@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements'
+import { StyleSheet, Text, View, Image, Keyboard } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
 
 
 class Table extends Component  {
@@ -11,6 +12,13 @@ class Table extends Component  {
     this.state = { 
       tableNumber: '' 
     };
+  }
+
+  nextPressed() {
+    // hide the keyboad
+    Keyboard.dismiss();
+    // navigate to the next view 
+    return this.props.navigation.navigate('Services');
   }
 
   render() {
@@ -52,6 +60,9 @@ class Table extends Component  {
                 icon={{ name: 'done' }}
                 title='Next'
                 backgroundColor="green"
+                onPress={
+                  this.nextPressed.bind(this)
+                }
               />
             </View>
 

@@ -4,13 +4,16 @@ import { StackNavigator } from 'react-navigation';
 
 import Table from './components/Table';
 import HomeScreen from './components/Home';
+import Services from './components/Services';
 
 
 const RootStack = StackNavigator({
     Home: {
-      screen: HomeScreen,
+      screen: HomeScreen
     },
-    
+    Services: {
+      screen: Services
+    }
   },
   {
     initialRouteName: 'Home',

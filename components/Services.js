@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { View, StyleSheet, Text } from 'react-native';
 
-import Table from './Table';
 
-export default class HomeScreen extends Component {
+export default class Services extends Component {
 
   static navigationOptions = {
-    title: "Enter Table's Number",
+    title: "How can we help you?",
   };
 
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
-  }
   render() {
 
     const {
@@ -22,7 +16,7 @@ export default class HomeScreen extends Component {
 
     return (
       <View style={container}>
-        <Table navigation={this.props.navigation} />
+        <Text> Hi </Text>
       </View>
     );
   }
