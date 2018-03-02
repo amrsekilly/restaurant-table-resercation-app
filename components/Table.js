@@ -33,6 +33,34 @@ class Table extends Component  {
     return this.props.navigation.navigate('Services');
   }
 
+  _renderNextButton() {
+    if (this.props.tableNumber.length) {
+      return (
+        <Button
+          icon={{ name: 'done' }}
+          title='Next'
+          backgroundColor="#2ACCC9"
+          onPress={
+            this.nextPressed.bind(this)
+          }
+        />
+      );
+    }
+    
+    return(
+      <Button
+        disabled
+        icon={{ name: 'arrow-back' }}
+        title='Next'
+        backgroundColor="#2ACCC9"
+        onPress={
+          this.nextPressed.bind(this)
+        }
+      />
+    );
+    
+  }
+
   render() {
     const {
       imgStyle,
@@ -68,14 +96,7 @@ class Table extends Component  {
             </View>
 
             <View style={{ flex: 1 }}>
-              <Button
-                icon={{ name: 'done' }}
-                title='Next'
-                backgroundColor="#2ACCC9"
-                onPress={
-                  this.nextPressed.bind(this)
-                }
-              />
+              { this._renderNextButton() }
             </View>
 
             <View style={{ flex: 1 }}>
