@@ -14,6 +14,7 @@ export default class HomeScreen extends Component {
     super(props);
     this.state = { text: 'Useless Placeholder' };
   }
+  
   render() {
 
     const {

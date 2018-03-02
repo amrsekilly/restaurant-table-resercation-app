@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Keyboard } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  Image, 
+  Keyboard 
+} from 'react-native';
+import { 
+  FormLabel, 
+  FormInput, 
+  FormValidationMessage, 
+  Button,
+  
+} from 'react-native-elements';
+import {MaterialCommunityIcons} from 'react-native-vector-icons';
 import { StackNavigator } from 'react-navigation';
 
 
@@ -14,6 +27,7 @@ class Table extends Component  {
     };
   }
 
+  // When the user presses the next button
   nextPressed() {
     // hide the keyboad
     Keyboard.dismiss();
@@ -27,7 +41,8 @@ class Table extends Component  {
       imgContainer,
       titleStyle,
       inputStyle,
-      formStyle
+      formStyle,
+      iconStyles
     } = styles;
 
     return (
@@ -56,7 +71,6 @@ class Table extends Component  {
 
             <View style={{ flex: 1 }}>
               <Button
-                raised
                 icon={{ name: 'done' }}
                 title='Next'
                 backgroundColor="green"
@@ -66,13 +80,25 @@ class Table extends Component  {
               />
             </View>
 
+            <View style={{ flex: 1 }}>
+              <Button
+                iconComponent={MaterialCommunityIcons}
+                icon={{ 
+                  name: 'qrcode-scan',
+                  style: iconStyles
+                 }}
+                backgroundColor="grey"
+              
+              />
+            </View>
+
           </View>
 
       </View>
         
     );
   }
-}
+} 
 
 const styles = StyleSheet.create({
   imgContainer: {
@@ -98,6 +124,10 @@ const styles = StyleSheet.create({
   formStyle: {
     flex: 1, 
     flexDirection: 'row'
+  },
+  iconStyles: {
+    fontWeight: 'bold',
+    paddingLeft: 7,
   }
 
 });
