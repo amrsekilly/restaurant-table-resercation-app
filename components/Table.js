@@ -15,16 +15,13 @@ import {
 } from 'react-native-elements';
 import {MaterialCommunityIcons} from 'react-native-vector-icons';
 import { StackNavigator } from 'react-navigation';
+import { connect } from 'react-redux';
 
 
 class Table extends Component  {
 
   constructor(props) {
     super(props);
-    // Initial State
-    this.state = { 
-      tableNumber: '' 
-    };
   }
 
   // When the user presses the next button
@@ -62,7 +59,7 @@ class Table extends Component  {
                 <FormInput
                   keyboardType='numeric'
                   onChangeText={(tableNumber) => this.setState({ tableNumber })}
-                  value={this.state.tableNumber}
+                  value={this.props.tableNumber}
                   inputStyle={inputStyle}
                   placeholder="3"
                   autoFocus
@@ -132,5 +129,11 @@ const styles = StyleSheet.create({
 
 });
 
+const mapStateToProps = state => {
+  return {
+    tableNumber: state.table.tableNumber
+  };
+};
 
-export default Table;
+
+export default connect(mapStateToProps, null)(Table);
