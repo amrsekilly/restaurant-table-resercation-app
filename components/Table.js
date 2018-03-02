@@ -73,7 +73,7 @@ class Table extends Component  {
               <Button
                 icon={{ name: 'done' }}
                 title='Next'
-                backgroundColor="green"
+                backgroundColor="#2ACCC9"
                 onPress={
                   this.nextPressed.bind(this)
                 }
@@ -87,7 +87,7 @@ class Table extends Component  {
                   name: 'qrcode-scan',
                   style: iconStyles
                  }}
-                backgroundColor="#2D4B6D"
+                backgroundColor="#4674A2"
               
               />
             </View>
