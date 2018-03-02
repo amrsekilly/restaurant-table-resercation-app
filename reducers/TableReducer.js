@@ -4,7 +4,7 @@ import {
 
 let INITIAL_STATE = {
   // table number is stored in table
-  tableNumber: '33'
+  tableNumber: ''
 };
 
 // the table reducer

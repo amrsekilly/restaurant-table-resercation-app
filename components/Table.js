@@ -16,6 +16,7 @@ import {
 import {MaterialCommunityIcons} from 'react-native-vector-icons';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
+import { setTable } from '../actions';
 
 
 class Table extends Component  {
@@ -58,7 +59,7 @@ class Table extends Component  {
             <View style={{ flex: 1 }}>
                 <FormInput
                   keyboardType='numeric'
-                  onChangeText={(tableNumber) => this.setState({ tableNumber })}
+                  onChangeText={(tableNumber) => this.props.setTable(tableNumber)}
                   value={this.props.tableNumber}
                   inputStyle={inputStyle}
                   placeholder="3"
@@ -136,4 +137,6 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, null)(Table);
+export default connect(mapStateToProps, { 
+  setTable 
+})(Table);
