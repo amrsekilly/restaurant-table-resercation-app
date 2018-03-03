@@ -46,16 +46,13 @@ class Table extends Component  {
         />
       );
     }
-    
+
+    // if table number isn't set yet
     return(
       <Button
         disabled
         icon={{ name: 'arrow-back' }}
-        title='Next'
-        backgroundColor="#2ACCC9"
-        onPress={
-          this.nextPressed.bind(this)
-        }
+        title='There'
       />
     );
     
