@@ -22,7 +22,7 @@ class Services extends Component {
         title='Menu'
         backgroundColor="#2ACCC9"
         buttonStyle={styles.buttonStyle}
-        onPress={this.props.selectService.bind(this, 'menu')}
+        onPress={this.props.selectService.bind(this, 'menu', this.props.tableNumber)}
       />
     );
   }
@@ -37,7 +37,7 @@ class Services extends Component {
         title='Order'
         backgroundColor="#4AAED1"
         buttonStyle={styles.buttonStyle}
-        onPress={this.props.selectService.bind(this, 'order')}
+        onPress={this.props.selectService.bind(this, 'order', this.props.tableNumber)}
       />
     );
   }
@@ -52,7 +52,7 @@ class Services extends Component {
         title='Invoice'
         backgroundColor="#4674A2"
         buttonStyle={styles.buttonStyle}
-        onPress={this.props.selectService.bind(this, 'invoice')}
+        onPress={this.props.selectService.bind(this, 'invoice', this.props.tableNumber)}
       />
     );
   }
@@ -87,7 +87,6 @@ class Services extends Component {
       ); 
     }
     
-
     // if the order is selected
     if (this.props.service === 'order') {
       // show disabled service button 
@@ -162,7 +161,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    service: state.table.service
+    service: state.table.service,
+    tableNumber: state.table.tableNumber
   };
 };
 

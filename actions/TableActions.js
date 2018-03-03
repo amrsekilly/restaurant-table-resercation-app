@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 import {
   SELECT_TABLE,
   SELECT_SERVICE
@@ -12,9 +14,34 @@ export const setTable = (tableNum) => {
 };
 
 // When the user selects a service 
-export const selectService = (serviceSelected = '') => {
-  return {
-    type: SELECT_SERVICE,
-    payload: serviceSelected
+export const selectService = (serviceSelected = '', table = '') => {
+
+  return (dispatch) => {
+    if (serviceSelected && table) {
+      firebase.database().ref(`/${table}`)
+        .set({
+          table,
+          service: serviceSelected,
+        })
+        .then(() => {
+          dispatch({
+            type: SELECT_SERVICE,
+            payload: serviceSelected
+          });
+        });
+    } else {
+      firebase.database().ref(`/${table}`)
+        .set({
+          "table": "null",
+          "service": "null"
+        })
+        .then(() => {
+          dispatch({
+            type: SELECT_SERVICE,
+            payload: serviceSelected
+          });
+        });
+    }
+    
   };
 };

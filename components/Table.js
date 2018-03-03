@@ -87,7 +87,7 @@ class Table extends Component  {
                 onChangeText={(tableNumber) => this.props.setTable(tableNumber)}
                 value={this.props.tableNumber}
                 inputStyle={inputStyle}
-                placeholder="3"
+                placeholder="e.g. 3"
                 autoFocus
               />
             </View>
