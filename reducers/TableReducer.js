@@ -6,6 +6,7 @@ import {
 let INITIAL_STATE = {
   // table number is stored in table
   tableNumber: '',
+  // the service the user requested
   service: ''
 };
 

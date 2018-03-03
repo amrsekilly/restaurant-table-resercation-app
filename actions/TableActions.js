@@ -12,7 +12,7 @@ export const setTable = (tableNum) => {
 };
 
 // When the user selects a service 
-export const selectService = (serviceSelected) => {
+export const selectService = (serviceSelected = '') => {
   return {
     type: SELECT_SERVICE,
     payload: serviceSelected
