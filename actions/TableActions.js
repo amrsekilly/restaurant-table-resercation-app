@@ -31,10 +31,7 @@ export const selectService = (serviceSelected = '', table = '') => {
         });
     } else {
       firebase.database().ref(`/${table}`)
-        .set({
-          "table": "null",
-          "service": "null"
-        })
+        .remove()
         .then(() => {
           dispatch({
             type: SELECT_SERVICE,

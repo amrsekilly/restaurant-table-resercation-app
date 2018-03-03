@@ -66,7 +66,7 @@ class Services extends Component {
         title='Cancel'
         backgroundColor="#73002A"
         buttonStyle={styles.buttonStyle}
-        onPress={this.props.selectService.bind(this)}
+        onPress={this.props.selectService.bind(this, null, this.props.tableNumber)}
       />
     );
   }
@@ -114,7 +114,7 @@ class Services extends Component {
     }
 
     // if no service is selected, show all services
-    if (!this.props.service.length) {
+    if (!this.props.service) {
       return (
         <View>
           {this._renderMenu()}
