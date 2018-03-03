@@ -82,14 +82,14 @@ class Table extends Component  {
           <View style={formStyle}>
 
             <View style={{ flex: 1 }}>
-                <FormInput
-                  keyboardType='numeric'
-                  onChangeText={(tableNumber) => this.props.setTable(tableNumber)}
-                  value={this.props.tableNumber}
-                  inputStyle={inputStyle}
-                  placeholder="3"
-                  autoFocus
-                />
+              <FormInput
+                keyboardType='numeric'
+                onChangeText={(tableNumber) => this.props.setTable(tableNumber)}
+                value={this.props.tableNumber}
+                inputStyle={inputStyle}
+                placeholder="3"
+                autoFocus
+              />
             </View>
 
             <View style={{ flex: 1 }}>

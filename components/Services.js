@@ -22,6 +22,7 @@ class Services extends Component {
         title='Menu'
         backgroundColor="#2ACCC9"
         buttonStyle={styles.buttonStyle}
+        onPress={this.props.selectService.bind(this, 'menu')}
       />
     );
   }
@@ -36,6 +37,7 @@ class Services extends Component {
         title='Order'
         backgroundColor="#4AAED1"
         buttonStyle={styles.buttonStyle}
+        onPress={this.props.selectService.bind(this, 'order')}
       />
     );
   }
@@ -50,6 +52,7 @@ class Services extends Component {
         title='Invoice'
         backgroundColor="#4674A2"
         buttonStyle={styles.buttonStyle}
+        onPress={this.props.selectService.bind(this, 'invoice')}
       />
     );
   }
@@ -63,6 +66,7 @@ class Services extends Component {
         title='Cancel'
         backgroundColor="#73002A"
         buttonStyle={styles.buttonStyle}
+        onPress={this.props.selectService.bind(this)}
       />
     );
   }
