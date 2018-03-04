@@ -2,7 +2,8 @@ import firebase from 'firebase';
 
 import {
   SELECT_TABLE,
-  SELECT_SERVICE
+  SELECT_SERVICE,
+  LOADING
 } from './types';
 
 // to set the table number
@@ -26,6 +27,10 @@ export const selectService = (serviceSelected = '', table = '') => {
 
   return (dispatch) => {
     if (serviceSelected && table) {
+      dispatch({
+        type: LOADING,
+        payload: true
+      });
       firebase.database().ref(`/${table}`)
         .set({
           table,
@@ -35,6 +40,10 @@ export const selectService = (serviceSelected = '', table = '') => {
           dispatch({
             type: SELECT_SERVICE,
             payload: serviceSelected
+          });
+          dispatch({
+            type: LOADING,
+            payload: false
           });
         });
     } else {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { Button, Divider, Text } from 'react-native-elements';
 import { MaterialIcons, MaterialCommunityIcons } from 'react-native-vector-icons';
 import { connect } from 'react-redux';
@@ -10,6 +10,12 @@ class Services extends Component {
   static navigationOptions = {
     title: "How can we help you?",
   };
+
+  _renderLoading() {
+    return(
+      <ActivityIndicator size="small" color="#00ff00" />
+    );
+  }
 
 
   _renderMenu(disabled = false) {
@@ -117,9 +123,26 @@ class Services extends Component {
     if (!this.props.service) {
       return (
         <View>
-          {this._renderMenu()}
-          {this._renderOrder()}
-          {this._renderInvoice()}
+        {
+            this.props.loading ?
+              this._renderLoading():
+              null
+        }
+          {
+            this.props.loading ?
+              this._renderMenu(true)
+              : this._renderMenu()
+          }
+          {
+            this.props.loading ?
+              this._renderOrder(true)
+              : this._renderOrder()
+          }
+          {
+            this.props.loading ?
+              this._renderInvoice(true)
+              : this._renderInvoice()
+          }
         </View>
       );
       
@@ -131,9 +154,7 @@ class Services extends Component {
 
     return (
       <View style={styles.container}>
-        
         {this._renderButtons()}
-
       </View>
     );
   }
@@ -162,7 +183,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     service: state.table.service,
-    tableNumber: state.table.tableNumber
+    tableNumber: state.table.tableNumber,
+    loading: state.table.loading
   };
 };
 
