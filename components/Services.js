@@ -13,10 +13,13 @@ class Services extends Component {
 
   _renderLoading() {
     return(
-      <ActivityIndicator size="small" color="#00ff00" />
+      <ActivityIndicator 
+        size="small" 
+        color="#2ACCC9"
+        animating={this.props.loading}
+      />
     );
   }
-
 
   _renderMenu(disabled = false) {
     return (
@@ -123,11 +126,9 @@ class Services extends Component {
     if (!this.props.service) {
       return (
         <View>
-        {
-            this.props.loading ?
-              this._renderLoading():
-              null
-        }
+          
+          {this._renderLoading()}
+
           {
             this.props.loading ?
               this._renderMenu(true)
