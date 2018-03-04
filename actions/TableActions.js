@@ -9,7 +9,7 @@ import {
 // to set the table number
 export const setTable = (tableNum) => {
   return (dispatch) => {
-    if (tableNum.indexOf(".") == -1 && Number.isInteger(Number(tableNum))) {
+    if (tableNum.indexOf(".") == -1 && Number.isInteger(Number(tableNum)) && Number(tableNum) <= 200) {
       dispatch({
         type: SELECT_TABLE,
         payload: tableNum
@@ -17,9 +17,7 @@ export const setTable = (tableNum) => {
     } else {
       // 
     }
-
   };
-
 };
 
 // When the user selects a service 
