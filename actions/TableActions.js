@@ -7,6 +7,17 @@ import {
   CLEAR_TABLE
 } from './types';
 
+const fromDb = (dispatch, tableNum) => {
+  firebase.database().ref(`/${tableNum}`).child('service').on('value', data => {
+    if (data.val()) {
+      dispatch({
+        type: SELECT_SERVICE,
+        payload: data.val()
+      });
+    }
+  });
+};
+
 // To clear the table 
 export const clearTable = (tableNum = '999') => {
   return (dispatch) => {
@@ -59,6 +70,8 @@ export const selectService = (serviceSelected = '', table = '') => {
             payload: false
           });
         });
+        // subscribe to the service value
+        fromDb(dispatch, table);
     } else {
       dispatch({
         type: LOADING,

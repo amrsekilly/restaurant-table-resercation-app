@@ -132,7 +132,7 @@ class Services extends Component {
     }
 
     // if no service is selected, show all services
-    if (!this.props.service) {
+    if (!this.props.service || this.props.service === 'done') {
       return (
         <View>
           
