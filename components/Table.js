@@ -16,13 +16,19 @@ import {
 import {MaterialCommunityIcons} from 'react-native-vector-icons';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
-import { setTable } from '../actions';
+import { setTable, clearTable } from '../actions';
 
 
 class Table extends Component  {
 
   constructor(props) {
     super(props);
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.tableNumber) {
+      this.props.clearTable(this.props.tableNumber);
+    }
   }
 
   // When the user presses the next button
@@ -156,5 +162,6 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, { 
-  setTable 
+  setTable,
+  clearTable
 })(Table);

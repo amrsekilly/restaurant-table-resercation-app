@@ -13,12 +13,19 @@ class Services extends Component {
 
   _renderLoading() {
     return(
-      <View style={styles.spinnerStyle}>
-        <ActivityIndicator 
-          size="small" 
-          color="#2ACCC9"
-          animating={this.props.loading}
-        />
+      <View>
+        {
+          this.props.loading ? 
+          <Text h4>Loading!</Text> :
+          null
+        }
+        <View style={styles.spinnerStyle}>
+          <ActivityIndicator 
+            size="small" 
+            color="#2ACCC9"
+            animating={this.props.loading}
+          />
+        </View>
       </View>
     );
   }

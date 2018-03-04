@@ -3,8 +3,23 @@ import firebase from 'firebase';
 import {
   SELECT_TABLE,
   SELECT_SERVICE,
-  LOADING
+  LOADING,
+  CLEAR_TABLE
 } from './types';
+
+// To clear the table 
+export const clearTable = (tableNum = '999') => {
+  return (dispatch) => {
+    firebase.database().ref(`/${tableNum}`)
+      .remove()
+      .then(() => {
+        dispatch({
+          type: SELECT_SERVICE,
+          payload: ''
+        });
+      });
+  };
+}
 
 // to set the table number
 export const setTable = (tableNum) => {
@@ -45,6 +60,10 @@ export const selectService = (serviceSelected = '', table = '') => {
           });
         });
     } else {
+      dispatch({
+        type: LOADING,
+        payload: true
+      });
       firebase.database().ref(`/${table}`)
         .remove()
         .then(() => {
@@ -53,6 +72,10 @@ export const selectService = (serviceSelected = '', table = '') => {
             payload: serviceSelected
           });
         });
+      dispatch({
+        type: LOADING,
+        payload: false
+      });
     }
     
   };
