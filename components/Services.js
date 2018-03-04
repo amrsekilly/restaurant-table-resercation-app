@@ -13,11 +13,13 @@ class Services extends Component {
 
   _renderLoading() {
     return(
-      <ActivityIndicator 
-        size="small" 
-        color="#2ACCC9"
-        animating={this.props.loading}
-      />
+      <View style={styles.spinnerStyle}>
+        <ActivityIndicator 
+          size="small" 
+          color="#2ACCC9"
+          animating={this.props.loading}
+        />
+      </View>
     );
   }
 
@@ -177,6 +179,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30,
     height: 3
+  },
+  spinnerStyle: {
+    marginBottom: 20
   }
 });
 
