@@ -27,6 +27,13 @@ const RootStack = StackNavigator({
 
 export default class App extends Component {
 
+  constructor() {
+    super();
+    console.ignoredYellowBox = [
+      'Setting a timer'
+    ];
+  }
+
   componentWillMount() {
     const config = {
       apiKey: "AIzaSyBb63cQ3T3Ky9RcMflZo8kjzxeKgAHMoeI",

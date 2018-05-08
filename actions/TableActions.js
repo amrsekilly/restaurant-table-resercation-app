@@ -21,6 +21,7 @@ const fromDb = (dispatch, tableNum) => {
 // To clear the table 
 export const clearTable = (tableNum = '999') => {
   return (dispatch) => {
+    // remove from firebase
     firebase.database().ref(`/${tableNum}`)
       .remove()
       .then(() => {
@@ -29,6 +30,8 @@ export const clearTable = (tableNum = '999') => {
           payload: ''
         });
       });
+      // remove the reference to firebase 
+      firebase.database().ref(`/${tableNum}`).child('service').off();
   };
 }
 
@@ -77,6 +80,7 @@ export const selectService = (serviceSelected = '', table = '') => {
         type: LOADING,
         payload: true
       });
+
       firebase.database().ref(`/${table}`)
         .remove()
         .then(() => {
@@ -85,6 +89,10 @@ export const selectService = (serviceSelected = '', table = '') => {
             payload: serviceSelected
           });
         });
+
+      // remove the reference 
+      firebase.database().ref(`/${table}`).off();
+      
       dispatch({
         type: LOADING,
         payload: false

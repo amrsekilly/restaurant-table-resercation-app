@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "sdkVersion": "25.0.0",
+    "name": "Test1123",
+    "icon": "./resources/img/square-logo.png",
+    "version": "2.0.0",
+    "slug": "amrsekilly-test-app",
+    "ios": {
+      "bundleIdentifier": "com.amrsekilly.test1123"
+    },
+    "android": {
+      "package": "com.amrsekilly.test1123"
+    }
   }
 }
